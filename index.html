@@ -1,62 +1,67 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Babyname Generator</title>
-    <link href="https://fonts.googleapis.com/css2?family=Oooh+Baby&family=Babylonica&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Babyname Generator</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div class="container">
-        <div class="overlay"></div>
-        <div class="background-box"></div>
-        <div class="header-box"></div>
-        <div class="searchbar-background"></div>
-        <div class="search-text">Search your Name......</div>
-        <div class="main-title">- Babyname Generator -</div>
-        <div class="side-box"></div>
-        <div class="button-background"></div>
-        <div class="border-circle" style="top: 417px;"></div>
-        <div class="border-circle" style="top: 452px;"></div>
-        <div class="label">Junge</div>
-        <div class="label" style="top: 445px;">Mädchen</div>
-        <div class="outline" style="top: 390px;"></div>
-        <div class="outline" style="top: 513px;"></div>
-        <div class="label-title">Geschlecht</div>
-        <div class="label-title" style="top: 477px;">Jahr</div>
-        <div class="year-label" style="left: 286px; top: 529px;">2023</div>
-        <div class="year-label" style="left: 332px; top: 529px;">2022</div>
-        <div class="year-label" style="left: 286px; top: 554px;">2021</div>
-        <div class="year-label" style="left: 332px; top: 554px;">2020</div>
-        <div class="year-label" style="left: 286px; top: 579px;">2019</div>
-        <div class="year-label" style="left: 332px; top: 579px;">2018</div>
-        <div class="year-label" style="left: 286px; top: 604px;">2017</div>
-        <div class="year-label" style="left: 332px; top: 604px;">2016</div>
-        <div class="year-label" style="left: 286px; top: 629px;">2015</div>
-        <div class="year-label" style="left: 332px; top: 629px;">2014</div>
-        <div class="year-label" style="left: 286px; top: 654px;">2013</div>
-        <div class="year-label" style="left: 332px; top: 654px;">2012</div>
-        <div class="year-label" style="left: 286px; top: 679px;">2011</div>
-        <div class="year-label" style="left: 332px; top: 679px;">2010</div>
-        <div class="year-label" style="left: 286px; top: 704px;">2009</div>
-        <div class="year-label" style="left: 332px; top: 704px;">2008</div>
-        <div class="year-label" style="left: 288px; top: 729px;">2007</div>
-        <div class="year-label" style="left: 334px; top: 729px;">2006</div>
-        <div class="year-label" style="left: 288px; top: 754px;">2005</div>
-        <div class="year-label" style="left: 334px; top: 754px;">2004</div>
-        <div class="year-label" style="left: 288px; top: 779px;">2003</div>
-        <div class="year-label" style="left: 334px; top: 779px;">2002</div>
-        <div class="year-label" style="left: 288px; top: 804px;">2001</div>
-        <div class="year-label" style="left: 334px; top: 804px;">2000</div>
-        <div class="apply-button">anwenden</div>
-        <div class="info-text">Wähle das Geschlecht aus<br/>Wähle das Geburtsjahr aus</div>
-        <div class="info-text-large">Gib deinen Wunschnamen in der Searchbar ein</div>
-        <div class="info-text">.....wie beliebt dein Name ist</div>
-        <div class="info-text">....was der beliebteste Jungen- oder Mädchnenname im Jahr “xy” war</div>
-        <div class="call-to-action">Erfahre......</div>
-        <div class="call-to-action">oder</div>
-        <img class="image" src="https://placehold.co/248x248" alt="Placeholder Image">
-    </div>
+  <div class="container">
+    <aside class="sidebar">
+      <img src="baby-icon.svg" alt="Baby Icon" class="baby-icon"/>
+      <form id="filterForm">
+        <fieldset>
+          <legend>Geschlecht</legend>
+          <label><input type="radio" name="gender" value="boy" checked /> Junge</label>
+          <label><input type="radio" name="gender" value="girl" /> Mädchen</label>
+        </fieldset>
+        <fieldset>
+          <legend>Jahr</legend>
+          <div class="years">
+            <label><input type="radio" name="year" value="2023" checked />2023</label>
+            <label><input type="radio" name="year" value="2022" />2022</label>
+            <label><input type="radio" name="year" value="2021" />2021</label>
+            <label><input type="radio" name="year" value="2020" />2020</label>
+            <label><input type="radio" name="year" value="2019" />2019</label>
+            <label><input type="radio" name="year" value="2018" />2018</label>
+            <label><input type="radio" name="year" value="2017" />2017</label>
+            <label><input type="radio" name="year" value="2016" />2016</label>
+            <label><input type="radio" name="year" value="2015" />2015</label>
+            <label><input type="radio" name="year" value="2014" />2014</label>
+            <label><input type="radio" name="year" value="2013" />2013</label>
+            <label><input type="radio" name="year" value="2012" />2012</label>
+            <label><input type="radio" name="year" value="2011" />2011</label>
+            <label><input type="radio" name="year" value="2010" />2010</label>
+            <label><input type="radio" name="year" value="2009" />2009</label>
+            <label><input type="radio" name="year" value="2008" />2008</label>
+            <label><input type="radio" name="year" value="2007" />2007</label>
+            <label><input type="radio" name="year" value="2006" />2006</label>
+            <label><input type="radio" name="year" value="2005" />2005</label>
+            <label><input type="radio" name="year" value="2004" />2004</label>
+            <label><input type="radio" name="year" value="2003" />2003</label>
+            <label><input type="radio" name="year" value="2002" />2002</label>
+            <label><input type="radio" name="year" value="2001" />2001</label>
+            <label><input type="radio" name="year" value="2000" />2000</label>
+          </div>
+        </fieldset>
+        <button type="submit">anwenden</button>
+      </form>
+    </aside>
+
+    <main>
+      <h1>- Babyname Generator -</h1>
+      <input type="text" id="nameInput" placeholder="Search your Name..." />
+      <div class="info-box">
+        <h2>Erfahre.....</h2>
+        <p>...wie beliebt dein Name ist</p>
+        <p>1. Gib deinen Wunschnamen in der Searchbar ein</p>
+        <p>oder</p>
+        <p>...was der beliebteste Jungen- oder Mädchenname im Jahr "xy" war</p>
+        <p>1. Wähle das Geschlecht aus<br />2. Wähle das Geburtsjahr aus</p>
+      </div>
+    </main>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
