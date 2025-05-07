@@ -1,4 +1,4 @@
-const apiBase = "https://data.sg.ch/api/explore/v2.1/catalog/datasets/vornamen-der-neugeborenen-kanton-stgallen-seit-1987/records";
+const apiBase = "https://daten.sg.ch/api/explore/v2.1/catalog/datasets/vornamen-der-neugeborenen-kanton-stgallen-seit-1987/records?limit=-1&";
 
 // DOM-Elemente
 const yearRadios = document.querySelectorAll('input[name="year"]');
@@ -44,21 +44,23 @@ popularYearButton.addEventListener("click", () => {
 async function fetchTopNames(year) {
   rankingList.innerHTML = "<li>Lade...</li>";
   try {
-    const params = new URLSearchParams({
-      where: `jahr=${year}`,
-      order_by: "n desc",
-      limit: "10",
-      exclude: "vorname:andere Namen"
-    });
+    const params = "order_by=n%20desc&exclude=vorname%3Aandere%20Namen";
 
-    const res = await fetch(`${apiBase}?${params.toString()}`);
+    const res = await fetch(`${apiBase}&${params}`);
     const result = await res.json();
 
     rankingList.innerHTML = "";
+    if (result.results.length === 0) {
+      rankingList.innerHTML = "<li>Keine Daten gefunden.</li>";
+      return;
+    }
+
     result.results.forEach((item, index) => {
-      const li = document.createElement("li");
-      li.textContent = `${index + 1}. ${item.vorname} (${item.n})`;
-      rankingList.appendChild(li);
+      if (item.vorname && item.n) {
+        const li = document.createElement("li");
+        li.textContent = `${index + 1}. ${item.vorname} (${item.n})`;
+        rankingList.appendChild(li);
+      }
     });
   } catch (error) {
     rankingList.innerHTML = "<li>Fehler beim Laden der Daten.</li>";
@@ -70,15 +72,16 @@ async function fetchTopNames(year) {
 async function fetchNameFrequency(vorname, year) {
   nameFrequency.textContent = "Suche...";
   try {
+    const whereClause = `jahr=${year} AND vorname="${vorname}"`;
     const params = new URLSearchParams({
-      where: `jahr=${year} AND vorname="${vorname}"`,
+      where: whereClause,
       limit: "1"
     });
 
     const res = await fetch(`${apiBase}?${params.toString()}`);
     const result = await res.json();
 
-    if (result.results.length > 0) {
+    if (result.results && result.results.length > 0) {
       const eintrag = result.results[0];
       nameFrequency.textContent = `"${vorname}" wurde ${eintrag.n} Mal im Jahr ${year} vergeben.`;
     } else {
@@ -94,16 +97,17 @@ async function fetchNameFrequency(vorname, year) {
 async function fetchMostPopularYear(vorname) {
   popularYearOutput.textContent = "Suche...";
   try {
+    const whereClause = `vorname="${vorname}"`;
     const params = new URLSearchParams({
-      where: `vorname="${vorname}"`,
-      order_by: "n desc",
+      where: whereClause,
+      order_by: "n DESC",
       limit: "1"
     });
 
     const res = await fetch(`${apiBase}?${params.toString()}`);
     const result = await res.json();
 
-    if (result.results.length > 0) {
+    if (result.results && result.results.length > 0) {
       const eintrag = result.results[0];
       popularYearOutput.textContent = `"${vorname}" war im Jahr ${eintrag.jahr} am beliebtesten mit ${eintrag.n} Vergaben.`;
     } else {

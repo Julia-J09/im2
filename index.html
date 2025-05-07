@@ -1,30 +1,50 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <title>Vornamen Kanton St. Gallen</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vornamen im Kanton St. Gallen</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <div class="container">
+    <h1>Vornamen im Kanton St. Gallen</h1>
 
-  <h1>Vornamen im Kanton St. Gallen</h1>
+    <section>
+      <h2>Jahr auswählen</h2>
+      <div class="year-selection">
+        <!-- Radiobuttons für Jahre -->
+        <label><input type="radio" name="year" value="2023" checked />2023</label>
+        <label><input type="radio" name="year" value="2022" />2022</label>
+        <label><input type="radio" name="year" value="2021" />2021</label>
+        <label><input type="radio" name="year" value="2020" />2020</label>
+        <label><input type="radio" name="year" value="2019" />2019</label>
+        <label><input type="radio" name="year" value="2018" />2018</label>
+        <label><input type="radio" name="year" value="2017" />2017</label>
+        <label><input type="radio" name="year" value="2016" />2016</label>
+        <label><input type="radio" name="year" value="2015" />2015</label>
+        <label><input type="radio" name="year" value="2014" />2014</label>
+        <!-- Weitere Jahre bei Bedarf -->
+      </div>
+    </section>
 
-  <div class="section">
-    <strong>Jahr wählen:</strong><br>
-    <label><input type="radio" name="year" value="2023" checked> 2023</label>
-    <label><input type="radio" name="year" value="2022"> 2022</label>
-    <label><input type="radio" name="year" value="2021"> 2021</label>
-    <p id="selectedYear" class="output"></p>
-    <ul id="rankingList"></ul>
-  </div>
+    <section>
+      <h2 id="selectedYear">Top 10 Namen</h2>
+      <ol id="rankingList">
+        <li>Lade...</li>
+      </ol>
+    </section>
 
-  <div class="section">
-    <strong>Vorname suchen:</strong><br>
-    <input type="text" id="nameInput" placeholder="z. B. Lara">
-    <button id="searchButton">Anzahl im Jahr</button>
-    <button id="popularYearButton">Beliebtestes Jahr</button>
-    <p id="nameFrequency" class="output"></p>
-    <p id="popularYearOutput" class="output"></p>
+    <section>
+      <h2>Namenssuche</h2>
+      <input type="text" id="nameInput" placeholder="Vorname eingeben" />
+      <div class="buttons">
+        <button id="searchButton">Häufigkeit im Jahr</button>
+        <button id="popularYearButton">Beliebtestes Jahr</button>
+      </div>
+      <p id="nameFrequency"></p>
+      <p id="popularYearOutput"></p>
+    </section>
   </div>
 
   <script src="script.js"></script>
