@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (genderAPI) {
       apiUrl += `&refine=geschlecht%3A%22${genderAPI}%22`;
       console.log(apiUrl);
-    }
+    }2
 
     try {
       const response = await fetch(apiUrl);
