@@ -2,6 +2,7 @@ const apiBase = "https://daten.sg.ch/api/explore/v2.1/catalog/datasets/vornamen-
 
 // DOM-Elemente
 const yearRadios = document.querySelectorAll('input[name="year"]');
+const geschlechtRadios = document.querySelectorAll('input[name="geschlecht"]');
 const rankingList = document.getElementById("rankingList");
 const nameFrequency = document.getElementById("nameFrequency");
 const selectedYearText = document.getElementById("selectedYear");
@@ -12,15 +13,24 @@ const popularYearOutput = document.getElementById("popularYearOutput");
 
 // Initialer Wert
 let selectedYear = "2023";
+let selectedGeschlecht = "männlich";  // Standard: Jungen
 selectedYearText.textContent = `Top 10 Namen ${selectedYear}`;
-fetchTopNames(selectedYear);
+fetchTopNames(selectedYear, selectedGeschlecht);
 
 // Reagiere auf Jahr-Änderung
 yearRadios.forEach((radio) => {
   radio.addEventListener("change", () => {
     selectedYear = radio.value;
     selectedYearText.textContent = `Top 10 Namen ${selectedYear}`;
-    fetchTopNames(selectedYear);
+    fetchTopNames(selectedYear, selectedGeschlecht);
+  });
+});
+
+// Reagiere auf Geschlecht-Änderung
+geschlechtRadios.forEach((radio) => {
+  radio.addEventListener("change", () => {
+    selectedGeschlecht = radio.value;
+    fetchTopNames(selectedYear, selectedGeschlecht);
   });
 });
 
@@ -40,28 +50,29 @@ popularYearButton.addEventListener("click", () => {
   }
 });
 
-// Top 10 Namen eines Jahres laden
-async function fetchTopNames(year) {
+// Top 10 Namen eines Jahres mit Geschlecht laden
+async function fetchTopNames(year, geschlecht) {
   rankingList.innerHTML = "<li>Lade...</li>";
   try {
-    const params = "order_by=n%20desc&exclude=vorname%3Aandere%20Namen";
-
-    const res = await fetch(`${apiBase}&${params}`);
+    const geschlechtFilter = geschlecht === "männlich" ? "geschlecht%3D%27männlich%27" : "geschlecht%3D%27weiblich%27";
+    const res = await fetch(`${apiBase}&where=jahr%3D${year}%20AND%20${geschlechtFilter}&order_by=n%20desc`);
     const result = await res.json();
 
     rankingList.innerHTML = "";
-    if (result.results.length === 0) {
-      rankingList.innerHTML = "<li>Keine Daten gefunden.</li>";
-      return;
-    }
+    if (result.records && result.records.length > 0) {
+      result.records.forEach((item, index) => {
+        const vorname = item.fields.vorname;
+        const haeufigkeit = item.fields.n;
+        const geschlecht = item.fields.geschlecht;  // Hier annehmen, dass es ein geschlecht-Feld gibt
+        const geschlechtText = geschlecht === "männlich" ? "Jungen" : "Mädchen"; // Ausgabe nach Geschlecht
 
-    result.results.forEach((item, index) => {
-      if (item.vorname && item.n) {
         const li = document.createElement("li");
-        li.textContent = `${index + 1}. ${item.vorname} (${item.n})`;
+        li.textContent = `${index + 1}. ${vorname} (${haeufigkeit} ${geschlechtText})`;
         rankingList.appendChild(li);
-      }
-    });
+      });
+    } else {
+      rankingList.innerHTML = "<li>Keine Daten gefunden.</li>";
+    }
   } catch (error) {
     rankingList.innerHTML = "<li>Fehler beim Laden der Daten.</li>";
     console.error(error);

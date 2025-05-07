@@ -1,74 +1,66 @@
+/* Allgemeine Layout-Einstellungen */
 body {
   font-family: Arial, sans-serif;
-  background: #f4f4f4;
+  background-color: #f4f4f4;
+  color: #333;
   margin: 0;
-  padding: 20px;
+  padding: 0;
 }
 
 .container {
-  max-width: 700px;
+  width: 80%;
   margin: 0 auto;
-  background: #fff;
-  padding: 30px;
-  border-radius: 10px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 h1, h2 {
-  color: #333;
+  color: #2c3e50;
 }
 
-.year-selection {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+.radio-group {
   margin-bottom: 20px;
 }
 
-.year-selection label {
-  background: #eee;
-  padding: 5px 10px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.year-selection input[type="radio"] {
-  margin-right: 5px;
-}
-
-ol {
-  padding-left: 20px;
-}
-
-input[type="text"] {
-  padding: 10px;
-  font-size: 1rem;
-  width: 100%;
-  margin-bottom: 10px;
-  box-sizing: border-box;
-}
-
-.buttons {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 10px;
+.radio-group label {
+  margin-right: 15px;
 }
 
 button {
-  padding: 10px 15px;
-  font-size: 1rem;
-  cursor: pointer;
-  background: #2d89ef;
+  background-color: #3498db;
   color: white;
+  padding: 10px 15px;
   border: none;
   border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
 }
 
 button:hover {
-  background: #1b6fbd;
+  background-color: #2980b9;
 }
 
-p {
-  margin-top: 5px;
-  color: #333;
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  padding: 5px;
+  background-color: #ecf0f1;
+  margin-bottom: 5px;
+  border-radius: 4px;
+}
+
+input[type="text"] {
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+input[type="text"]:focus {
+  border-color: #3498db;
 }
