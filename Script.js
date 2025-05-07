@@ -11,7 +11,6 @@ const nameInput = document.getElementById("nameInput");
 let selectedYear = "2023";
 fetchTopNames(selectedYear);
 
-// Update on year change
 yearRadios.forEach((radio) => {
   radio.addEventListener("change", () => {
     selectedYear = radio.value;
