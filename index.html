@@ -21,7 +21,7 @@
             years
               .map(
                 (year, i) => `
-          <input type="radio" id="year${year}" name="year" value="${year}" ${year === 2023 ? "checked" : ""}>
+          <input type="radio" id="year${year}" vorname="year" value="${year}" ${year === 2023 ? "checked" : ""}>
           <label for="year${year}">${year}</label>`
               )
               .join("")
@@ -31,16 +31,15 @@
     </section>
 
     <section class="name-search">
-        <input type="text" id="nameInput" placeholder="Vorname eingeben..." />
+        <button id="historyButton">Verlauf anzeigen</button>
+         <input type="text" id="nameInput" placeholder="Vorname eingeben..." />
       <button id="searchButton">Suchen</button>
-      <button id="historyButton">Verlauf anzeigen</button>
     </section>
 
     <section class="results">
       <h2 id="selectedYear">Top 10 Namen 2023</h2>
       <ul id="rankingList"></ul>
       <p id="nameFrequency"></p>
-      <div id="nameHistory"></div>
     </section>
   </div>
 

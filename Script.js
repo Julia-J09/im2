@@ -1,8 +1,8 @@
 const apiBase = "https://www.freepublicapis.com/neugeborenen-vornamen-kanton-stgallen";
 
-const yearRadios = document.querySelectorAll('input[name="year"]');
+const yearRadios = document.querySelectorAll('input[vorname="year"]');
 const rankingList = document.getElementById("rankingList");
-const nameFrequency = document.getElementById("nameFrequency");
+const nameFrequency = document.getElementById("vornameFrequency");
 const selectedYearText = document.getElementById("selectedYear");
 const searchButton = document.getElementById("searchButton");
 const nameInput = document.getElementById("nameInput");
