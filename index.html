@@ -1,32 +1,62 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <title>Vornamen Kanton St. Gallen</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Babyname Generator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oooh+Baby&family=Babylonica&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-  <h1>Vornamen im Kanton St. Gallen</h1>
-
-  <div class="section">
-    <strong>Jahr wählen:</strong><br>
-    <label><input type="radio" name="year" value="2023" checked> 2023</label>
-    <label><input type="radio" name="year" value="2022"> 2022</label>
-    <label><input type="radio" name="year" value="2021"> 2021</label>
-    <p id="selectedYear" class="output"></p>
-    <ul id="rankingList"></ul>
-  </div>
-
-  <div class="section">
-    <strong>Vorname suchen:</strong><br>
-    <input type="text" id="nameInput" placeholder="z. B. Lara">
-    <button id="searchButton">Anzahl im Jahr</button>
-    <button id="popularYearButton">Beliebtestes Jahr</button>
-    <p id="nameFrequency" class="output"></p>
-    <p id="popularYearOutput" class="output"></p>
-  </div>
-
-  <script src="script.js"></script>
+    <div class="container">
+        <div class="overlay"></div>
+        <div class="background-box"></div>
+        <div class="header-box"></div>
+        <div class="searchbar-background"></div>
+        <div class="search-text">Search your Name......</div>
+        <div class="main-title">- Babyname Generator -</div>
+        <div class="side-box"></div>
+        <div class="button-background"></div>
+        <div class="border-circle" style="top: 417px;"></div>
+        <div class="border-circle" style="top: 452px;"></div>
+        <div class="label">Junge</div>
+        <div class="label" style="top: 445px;">Mädchen</div>
+        <div class="outline" style="top: 390px;"></div>
+        <div class="outline" style="top: 513px;"></div>
+        <div class="label-title">Geschlecht</div>
+        <div class="label-title" style="top: 477px;">Jahr</div>
+        <div class="year-label" style="left: 286px; top: 529px;">2023</div>
+        <div class="year-label" style="left: 332px; top: 529px;">2022</div>
+        <div class="year-label" style="left: 286px; top: 554px;">2021</div>
+        <div class="year-label" style="left: 332px; top: 554px;">2020</div>
+        <div class="year-label" style="left: 286px; top: 579px;">2019</div>
+        <div class="year-label" style="left: 332px; top: 579px;">2018</div>
+        <div class="year-label" style="left: 286px; top: 604px;">2017</div>
+        <div class="year-label" style="left: 332px; top: 604px;">2016</div>
+        <div class="year-label" style="left: 286px; top: 629px;">2015</div>
+        <div class="year-label" style="left: 332px; top: 629px;">2014</div>
+        <div class="year-label" style="left: 286px; top: 654px;">2013</div>
+        <div class="year-label" style="left: 332px; top: 654px;">2012</div>
+        <div class="year-label" style="left: 286px; top: 679px;">2011</div>
+        <div class="year-label" style="left: 332px; top: 679px;">2010</div>
+        <div class="year-label" style="left: 286px; top: 704px;">2009</div>
+        <div class="year-label" style="left: 332px; top: 704px;">2008</div>
+        <div class="year-label" style="left: 288px; top: 729px;">2007</div>
+        <div class="year-label" style="left: 334px; top: 729px;">2006</div>
+        <div class="year-label" style="left: 288px; top: 754px;">2005</div>
+        <div class="year-label" style="left: 334px; top: 754px;">2004</div>
+        <div class="year-label" style="left: 288px; top: 779px;">2003</div>
+        <div class="year-label" style="left: 334px; top: 779px;">2002</div>
+        <div class="year-label" style="left: 288px; top: 804px;">2001</div>
+        <div class="year-label" style="left: 334px; top: 804px;">2000</div>
+        <div class="apply-button">anwenden</div>
+        <div class="info-text">Wähle das Geschlecht aus<br/>Wähle das Geburtsjahr aus</div>
+        <div class="info-text-large">Gib deinen Wunschnamen in der Searchbar ein</div>
+        <div class="info-text">.....wie beliebt dein Name ist</div>
+        <div class="info-text">....was der beliebteste Jungen- oder Mädchnenname im Jahr “xy” war</div>
+        <div class="call-to-action">Erfahre......</div>
+        <div class="call-to-action">oder</div>
+        <img class="image" src="https://placehold.co/248x248" alt="Placeholder Image">
+    </div>
 </body>
 </html>

@@ -42,6 +42,8 @@ searchButton.addEventListener("click", () => {
   }
 });
 
+const params = "order_by=n%20desc&exclude=vorname%3Aandere%20Namen";
+
 // Suche: Jahr mit höchster Häufigkeit eines Namens
 popularYearButton.addEventListener("click", () => {
   const vorname = nameInput.value.trim();
