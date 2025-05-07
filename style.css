@@ -1,0 +1,85 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: auto;
+    padding: 2rem;
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  .year-selection {
+    margin: 1rem 0;
+  }
+  
+  .year-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .year-buttons input[type="radio"] {
+    display: none;
+  }
+  
+  .year-buttons label {
+    padding: 0.5rem 1rem;
+    background: #e0e0e0;
+    border-radius: 5px;
+    cursor: pointer;
+    user-select: none;
+  }
+  
+  .year-buttons input[type="radio"]:checked + label {
+    background: #007acc;
+    color: white;
+  }
+  
+  .name-search {
+    display: flex;
+    gap: 0.5rem;
+    margin: 1rem 0;
+  }
+  
+  .name-search input {
+    flex: 1;
+    padding: 0.5rem;
+    font-size: 1rem;
+  }
+  
+  .name-search button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    background: #007acc;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .name-search button:hover {
+    background: #005fa3;
+  }
+  
+  .results h2 {
+    margin-top: 2rem;
+  }
+  
+  #rankingList {
+    list-style: none;
+    padding: 0;
+  }
+  
+  #rankingList li {
+    padding: 0.3rem 0;
+    border-bottom: 1px solid #ccc;
+  }
+  

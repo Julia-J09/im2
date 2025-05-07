@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vornamen Kanton St. Gallen</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Beliebteste Vornamen im Kanton St. Gallen</h1>
+
+    <section class="year-selection">
+      <p>Jahr wählen:</p>
+      <div class="year-buttons">
+        <!-- Jahr-Buttons: 2000–2023 -->
+        <!-- 2023 vorausgewählt -->
+        <script>
+          const years = [...Array(24)].map((_, i) => 2000 + i);
+          document.write(
+            years
+              .map(
+                (year, i) => `
+          <input type="radio" id="year${year}" name="year" value="${year}" ${year === 2023 ? "checked" : ""}>
+          <label for="year${year}">${year}</label>`
+              )
+              .join("")
+          );
+        </script>
+      </div>
+    </section>
+
+    <section class="name-search">
+        <input type="text" id="nameInput" placeholder="Vorname eingeben..." />
+      <button id="searchButton">Suchen</button>
+      <button id="historyButton">Verlauf anzeigen</button>
+    </section>
+
+    <section class="results">
+      <h2 id="selectedYear">Top 10 Namen 2023</h2>
+      <ul id="rankingList"></ul>
+      <p id="nameFrequency"></p>
+      <div id="nameHistory"></div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
