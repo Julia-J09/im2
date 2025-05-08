@@ -84,10 +84,11 @@ nameInput.addEventListener("keypress", async (e) => {
       console.log(apiUrl);
     } 
 
-    try {
+    try { 
       const response = await fetch(apiUrl);
       const data = await response.json();
       const records = data.results;
+      console.log(records)
 
       // Standard-Filter: ohne Akzent-Normalisierung
       const filtered = records.filter(
