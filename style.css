@@ -17,7 +17,7 @@ body {
 }
 
 .baby-icon {
-  width: 80px;
+  width: 300px;
   margin-bottom: 20px;
 }
 
@@ -76,6 +76,26 @@ input[type="text"] {
 
 .info-box {
   background-color: #ede2d2;
+  padding: 30px;
+  border-radius: 24px;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.info-box.result1 {
+  background-color: #89CFF0;
+  padding: 30px;
+  border-radius: 24px;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.info-box.result2 {
+  background-color: #f4c2c2;
   padding: 30px;
   border-radius: 24px;
   max-width: 600px;
