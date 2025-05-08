@@ -44,6 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
+      //Anzahl Ranking definiert und Name Mädchen oder Junge Anzeige
       const topNames = records
         .slice(0, 10);
 
@@ -65,10 +66,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // --- Namenssuche ---
+  // Namenssuche
   nameInput.addEventListener("keypress", async (e) => {
     if (e.key === "Enter") {
-      e.preventDefault();
+      
       const name = nameInput.value.trim();
 
       if (!name) {
@@ -77,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       const nameEncoded = encodeURIComponent(name);
-      const apiUrl = `https://daten.sg.ch/api/explore/v2.1/catalog/datasets/vornamen-der-neugeborenen-kanton-stgallen-seit-1987/records?limit=10000&where=lower(vorname)%3D%22${name.toLowerCase()}%22`;
+      const apiUrl = `https://daten.sg.ch/api/explore/v2.1/catalog/datasets/vornamen-der-neugeborenen-kanton-stgallen-seit-1987/records?order_by=n%20desc&limit=-1&exclude=vorname%3Aandere%20Namen`;
 
       try {
         const response = await fetch(apiUrl);
