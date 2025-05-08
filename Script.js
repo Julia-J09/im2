@@ -92,10 +92,10 @@ document.addEventListener("DOMContentLoaded", () => {
         // Jahr mit höchster Anzahl suchen
         const best = records.reduce((max, current) => (current.n > max.n ? current : max)); //aus allen Datensätzen wird der mit der höchsten Anzahl gesucht. reduce= vergleicht alle Einträge, max= ist immer der bisher beste Eintrag, current= ist der aktuell geprüfte wert, falls current.n grösser ist, wird current der neue best.
 
-        const html = 
+        const html = `
           <h2>Namensanalyse für "${best.vorname}"</h2>
           <p>Am beliebtesten im Jahr <strong>${best.jahr}</strong> mit <strong>${best.n}</strong> Nennungen.</p>
-        ;
+        `;
         showResults(html); //der vorbereitete html block wird angezeigt.
       } catch (error) { //Fehlerbehandlung, falls die API nicht erreichbar ist
         console.error("Fehler bei der Namenssuche:", error);
