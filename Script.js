@@ -71,7 +71,7 @@ nameInput.addEventListener("input", async (e) => {
   
     const vorname = nameInput.value.trim();
     const vornameUpper = vorname.toUpperCase();
-    
+    console.log("Vorname:", vornameUpper);
 
     if (vorname === "") {
       showResults("<p>Bitte gib einen Namen ein.</p>");
