@@ -10,7 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const gender = form.gender.value;
     const year = form.year.value;
-
    
 
 
@@ -67,42 +66,59 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Namenssuche
-  nameInput.addEventListener("keypress", async (e) => {
-    if (e.key === "Enter") {
-      const name = nameInput.value.trim();
+nameInput.addEventListener("keypress", async (e) => {
+  if (e.key === "Enter") {
+    const vorname = nameInput.value.trim();
+    const vornameUpper = vorname.toUpperCase();
+    console.log(vornameUpper);
 
-      if (!name) {
-        showResults("<p>Bitte gib einen Namen ein.</p>"); //Wenn kein Name eingegeben wurde, wird eine Fehlermeldung angezeigt 
+    if (vorname === "") {
+      showResults("<p>Bitte gib einen Namen ein.</p>");
+      return;
+    }
+
+   let apiUrl = "https://daten.sg.ch/api/explore/v2.1/catalog/datasets/vornamen-der-neugeborenen-kanton-stgallen-seit-1987/records?order_by=n%20desc&limit=-1&exclude=vorname%3Aandere%20Namen";
+
+    if (vornameUpper) {
+      apiUrl += `&refine=vorname%3A${vornameUpper}`;
+      console.log(apiUrl);
+    } 
+
+    try {
+      const response = await fetch(apiUrl);
+      const data = await response.json();
+      const records = data.results;
+
+      // Standard-Filter: ohne Akzent-Normalisierung
+      const filtered = records.filter(
+        (record) => record.vorname.toUpperCase() === vornameUpper
+      );
+
+    
+
+      console.log(filtered);
+
+      if (filtered.length === 0) {
+        showResults(`<p>Der Name <strong>${vornameUpper}</strong> wurde nicht gefunden.</p>`);
         return;
       }
 
-      
-      const apiUrl = "https://daten.sg.ch/api/explore/v2.1/catalog/datasets/vornamen-der-neugeborenen-kanton-stgallen-seit-1987/records?order_by=n%20desc&limit=-1&exclude=vorname%3Aandere%20Namen";
+      // Jahr mit höchster Anzahl Nennungen
+      const best = filtered.reduce((max, current) =>
+        current.n > max.n ? current : max
+      );
 
-      try {
-        const response = await fetch(apiUrl);  //await= wartet auf Antort, mit fetch wird die API abgerufen, dann wird es in ein JavaScript-Objekt umgewandelt, und aus dem result werden die eigentlichen Daten geholt.
-        const data = await response.json();
-        const records = data.results;
-        const filtered = records.filter((record) => record.vorname.toLowerCase() === name.toLowerCase()); //alle Einträge werden gefiltert, die dem eingegebenen Namen entsprechen. toLowerCase() sorgt dafür, dass die Suche nicht zwischen Gross- und Kleinschreibung unterscheidet.
-
-        if (records.length === 0) {  //wenn keine Daten vorhanden sind, wird eine Fehlermeldung angezeigt
-          showResults(<p>Der Name <strong>${name}</strong> wurde nicht gefunden.</p>);
-          return;
-        }
-        // Jahr mit höchster Anzahl suchen
-        const best = records.reduce((max, current) => (current.n > max.n ? current : max)); //aus allen Datensätzen wird der mit der höchsten Anzahl gesucht. reduce= vergleicht alle Einträge, max= ist immer der bisher beste Eintrag, current= ist der aktuell geprüfte wert, falls current.n grösser ist, wird current der neue best.
-
-        const html = `
-          <h2>Namensanalyse für "${best.vorname}"</h2>
-          <p>Am beliebtesten im Jahr <strong>${best.jahr}</strong> mit <strong>${best.n}</strong> Nennungen.</p>
-        `;
-        showResults(html); //der vorbereitete html block wird angezeigt.
-      } catch (error) { //Fehlerbehandlung, falls die API nicht erreichbar ist
-        console.error("Fehler bei der Namenssuche:", error);
-        showResults("<p>Fehler bei der Namenssuche.</p>");
-      }
+      const html = `
+        <h2>Namensanalyse für "${best.vorname.toUpperCase()}"</h2>
+        <p>Am beliebtesten im Jahr <strong>${best.year}</strong> mit <strong>${best.n}</strong> Nennungen.</p>
+      `;
+      showResults(html);
+    } catch (error) {
+      console.error("Fehler bei der Namenssuche:", error);
+      showResults("<p>Fehler bei der Namenssuche.</p>");
     }
-  });
+  }
+});
 
   // 
   function showResults(content) {
