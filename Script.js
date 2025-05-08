@@ -2,15 +2,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("filterForm");
   const main = document.querySelector("main");
   const nameInput = document.getElementById("nameInput");
+  let babyIcon = document.querySelector(".baby-icon")
 
-  // --- Teil 1: Filter nach Jahr & Geschlecht ---
+  // --- Filter nach Jahr & Geschlecht auf Webseite ---
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     const gender = form.gender.value;
     const year = form.year.value;
 
-    
+   
+
 
     const genderMap = {
       boy: "1",
@@ -35,6 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const response = await fetch(apiUrl);
       const data = await response.json();
       const records = data.results;
+      console.log(records)
 
       if (records.length === 0) {
         showResults(`<p>Keine Daten gefunden.</p>`);
@@ -42,11 +45,15 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       const topNames = records
-        .sort((a, b) => b.n - a.n)
         .slice(0, 10);
 
+      let boyorgirl = "Jungennamen" 
+      if (gender=="girl"){
+        boyorgirl="Mädchennamen"
+      }
+        
       const html = `
-        <h2>Top 10 ${gender === "boy" ? "Jungennamen" : "Mädchennamen"} im Jahr ${year}</h2>
+        <h2>Top 10 ${boyorgirl} im Jahr ${year}</h2>
         <ol>
           ${topNames.map(name => `<li>${name.vorname} – ${name.n} Mal</li>`).join("")}
         </ol>
@@ -58,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // --- Teil 2: Namenssuche ---
+  // --- Namenssuche ---
   nameInput.addEventListener("keypress", async (e) => {
     if (e.key === "Enter") {
       e.preventDefault();
@@ -97,14 +104,34 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // --- Ausgabe-Box neu schreiben ---
+  // 
   function showResults(content) {
-    let oldResults = document.querySelector(".results");
-    if (oldResults) oldResults.remove();
+    const gender = form.gender.value;
 
-    const resultBox = document.createElement("div");
-    resultBox.className = "info-box results";
-    resultBox.innerHTML = content;
-    main.appendChild(resultBox);
+    let infoBox = document.querySelector(".info-box");
+    if (infoBox) infoBox.innerHTML="";
+
+    let gender_class = "";
+    let genderIcon = "babyiconneutral.gif"
+    if (gender=="boy") {
+      
+      // Klasse des Elements ändern auf "boy"
+      gender_class = "boy"
+      genderIcon =  "babyboy.gif";
+
+      //Klasse des Elements ändern auf "girl"
+    } else if (gender=="girl"){
+      gender_class = "girl"
+      genderIcon = "babygirl.gif";
+
+    } else {
+    }
+
+    babyIcon.src = genderIcon;
+    infoBox.classList.remove("boy" , "girl")
+    infoBox.classList.add(gender_class)
+    infoBox.innerHTML = content;
+    
+    
   }
 });

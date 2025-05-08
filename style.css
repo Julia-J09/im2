@@ -99,22 +99,10 @@ h1 {
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-.info-box.result1 {
+.info-box.boy {
   background-color: #89CFF0;
-  padding: 30px;
-  border-radius: 24px;
-  max-width: 600px;
-  margin: 0 auto;
-  text-align: center;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-.info-box.result2 {
+.info-box.girl {
   background-color: #f4c2c2;
-  padding: 30px;
-  border-radius: 24px;
-  max-width: 600px;
-  margin: 0 auto;
-  text-align: center;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
