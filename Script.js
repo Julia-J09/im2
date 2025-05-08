@@ -69,36 +69,52 @@ document.addEventListener("DOMContentLoaded", () => {
   // Namenssuche
   nameInput.addEventListener("keypress", async (e) => {
     if (e.key === "Enter") {
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+      //e.preventDefault();
+      const name = nameInput.value.trim(); // liest den eingegebenen Namen ein und entfernt Leerzeichen am Anfang und Ende
+=======
+>>>>>>> Stashed changes
       
       const name = nameInput.value.trim();
+>>>>>>> 412c0c5d03d88a01b473e42ca121e4c79785d087
 
       if (!name) {
-        showResults("<p>Bitte gib einen Namen ein.</p>");
+        showResults("<p>Bitte gib einen Namen ein.</p>"); //Wenn kein Name eingegeben wurde, wird eine Fehlermeldung angezeigt 
         return;
       }
 
+<<<<<<< HEAD
+      //const nameEncoded = encodeURIComponent(name); // Name wird für die URL kodiert, damit er über das Internet geschickt werden kann
+=======
       const nameEncoded = encodeURIComponent(name);
+<<<<<<< Updated upstream
+=======
+>>>>>>> 412c0c5d03d88a01b473e42ca121e4c79785d087
+>>>>>>> Stashed changes
       const apiUrl = `https://daten.sg.ch/api/explore/v2.1/catalog/datasets/vornamen-der-neugeborenen-kanton-stgallen-seit-1987/records?order_by=n%20desc&limit=-1&exclude=vorname%3Aandere%20Namen`;
 
-      try {
-        const response = await fetch(apiUrl);
+      try { 
+        const response = await fetch(apiUrl); //await= wartet auf Antort, mit fetch wird die API abgerufen, dann wird es in ein JavaScript-Objekt umgewandelt, und aus dem result werden die eigentlichen Daten geholt.
         const data = await response.json();
         const records = data.results;
+        const filtered = records.filter((record) => record.vorname.toLowerCase() === name.toLowerCase()); //alle Einträge werden gefiltert, die dem eingegebenen Namen entsprechen. toLowerCase() sorgt dafür, dass die Suche nicht zwischen Gross- und Kleinschreibung unterscheidet.
 
-        if (records.length === 0) {
+        if (records.length === 0) { //wenn keine Daten vorhanden sind, wird eine Fehlermeldung angezeigt
           showResults(`<p>Der Name <strong>${name}</strong> wurde nicht gefunden.</p>`);
           return;
         }
 
         // Jahr mit höchster Anzahl suchen
-        const best = records.reduce((max, current) => (current.n > max.n ? current : max));
-
+        const best = records.reduce((max, current) => (current.n > max.n ? current : max)); //aus allen Datensätzen wird der mit der höchsten Anzahl gesucht. reduce= vergleicht alle Einträge, max= ist immer der bisher beste Eintrag, current= ist der aktuell geprüfte wert, falls current.n grösser ist, wird current der neue best.
+        // html block wird gebaut.
         const html = `
-          <h2>Namensanalyse für "${best.vorname}"</h2>
+          <h2>Namensanalyse für "${best.vorname}"</h2> 
           <p>Am beliebtesten im Jahr <strong>${best.jahr}</strong> mit <strong>${best.n}</strong> Nennungen.</p>
         `;
-        showResults(html);
-      } catch (error) {
+        showResults(html); //der vorbereitete html block wird angezeigt.
+      } catch (error) { //Fehlerbehandlung, falls die API nicht erreichbar ist
         console.error("Fehler bei der Namenssuche:", error);
         showResults("<p>Fehler bei der Namenssuche.</p>");
       }
