@@ -66,8 +66,9 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Namenssuche
-nameInput.addEventListener("keypress", async (e) => {
-  if (e.key === "Enter") {
+nameInput.addEventListener("input", async (e) => {
+  e.preventDefault();
+  
     const vorname = nameInput.value.trim();
     const vornameUpper = vorname.toUpperCase();
     console.log(vornameUpper);
@@ -118,7 +119,7 @@ nameInput.addEventListener("keypress", async (e) => {
       console.error("Fehler bei der Namenssuche:", error);
       showResults("<p>Fehler bei der Namenssuche.</p>");
     }
-  }
+  
 });
 
   // 

@@ -74,20 +74,6 @@ h1 {
   background-color: #fefaf3;
 }
 
-.search-box button {
-  background-color: #f3eeda;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 9999px;
-  font-family: inherit;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-.search-box button:hover {
-  background-color: #e0d8c0;
-}
 
 .info-box {
   background-color: #ede2d2;
