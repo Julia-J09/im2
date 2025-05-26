@@ -16,6 +16,10 @@ body {
   font-style: normal;
 }
 
+.sg {
+  color: green;
+}
+
 h2 {
   font-family: "Oooh Baby", cursive;
   font-weight: 400;
@@ -31,6 +35,7 @@ p{
   font-size: 20px;
 }
 
+
 .container {
   display: flex;
   padding: 40px;
@@ -45,18 +50,18 @@ p{
 
 .baby-icon {
   width: 300px;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
 }
 
 .baby-icon-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
 }
 
 fieldset {
-  border-left-width: 40px;
+  border-left-width: 50px;
   border-color:  #fcf9ef;
   border-style: solid;
   margin: 20px 0;
@@ -92,6 +97,7 @@ button {
   margin-top: 20px;
   padding: 10px 20px;
   background-color: #eae3d9;
+  margin-left: 50px;
   border: none;
   border-radius: 12px;
   cursor: pointer;
@@ -104,9 +110,16 @@ main {
 
 h1 {
   font-family: "Babylonica";
-  font-size: 48px;
-  margin-bottom: 20px;
+  font-size: 80px;
+  margin-bottom: 0px;
   text-align: center;
+}
+
+.search-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 80px;
 }
 
 .search-box input[type="text"] {
@@ -127,8 +140,9 @@ h1 {
   background-color: #ede2d2;
   padding: 30px;
   border-radius: 24px;
-  max-width: 600px;
-  margin: 0 auto;
+  margin: 0 auto 30px;
+  width: 80%;
+  margin-top: 20px;
   text-align: center;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
@@ -139,4 +153,9 @@ h1 {
 
 .info-box.girl {
   background-color: #f4c2c2;
+}
+
+ol li:nth-child(n+1):nth-child(-n+3) {
+  font-family: "oooh baby", cursive;
+  font-size: 50px;
 }
