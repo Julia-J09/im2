@@ -111,7 +111,7 @@ nameInput.addEventListener("input", async (e) => {
       );
 
       const html = `
-        <h2>Namensanalyse für "${best.vorname.toUpperCase()}"</h2>
+        <h3>Namensanalyse für "${best.vorname.toUpperCase()}"</h3>
         <p>Am beliebtesten im Jahr <strong>${best.year}</strong> mit <strong>${best.n}</strong> Nennungen.</p>
       `;
       showResults(html);

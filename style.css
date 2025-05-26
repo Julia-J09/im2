@@ -20,12 +20,27 @@ body {
   color: green;
 }
 
+h1 {
+  font-family: "Babylonica";
+  font-size: 80px;
+  margin-bottom: 0px;
+  text-align: center;
+}
+
 h2 {
   font-family: "Oooh Baby", cursive;
   font-weight: 400;
   font-style: normal;
   font-size: 32px;
   margin-bottom: 100px;
+}
+
+h3 {
+  font-family: "Oooh Baby", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 32px;
+  margin-bottom: 10px;
 }
 
 p{
@@ -108,12 +123,7 @@ main {
   flex: 1;
 }
 
-h1 {
-  font-family: "Babylonica";
-  font-size: 80px;
-  margin-bottom: 0px;
-  text-align: center;
-}
+
 
 .search-box {
   display: flex;
@@ -184,23 +194,23 @@ h1 {
   padding: 16px 24px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
   width: 140px;
-  font-size: 20px;
 }
 
+
+/*Zahlen auf Podest*/
 .podest li:nth-child(-n+3)::before {
   content: counter(ranking) ".";
   font-weight: bold;
-  position: absolute;
+  position: fixed;
   top: -1.2em;
   left: 50%;
-  transform: translateX(-50%);
-  font-size: 1.4em;
 }
 
 /* Spezielle Farben, Größen und Positionierung für Podestplätze */
 .podest li:nth-child(1) {
   background: gold;
-  font-size: 24px;
+  font-size: 32px;
+  text-align: center;
   font-weight: bold;
   color: #3b3b3b;
   order: 2;
@@ -210,13 +220,17 @@ h1 {
 .podest li:nth-child(2) {
   background: silver;
   color: #3b3b3b;
+  text-align: center;
   order: 1;
+  font-size: 28px;
   transform: translateY(-15px);
 }
 
 .podest li:nth-child(3) {
   background: #cd7f32;
   color: #3b3b3b;
+  font-size: 28px;
+  text-align: center;
   order: 3;
   transform: translateY(-10px);
 }
