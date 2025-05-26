@@ -1,8 +1,42 @@
 body {
   margin: 0;
-  font-family: 'Georgia', serif;
+  font-family: "Oooh Baby", cursive;
   background-color: #fcf9ef;
   color: #443d3d;
+}
+
+.babylonica-regular {
+  font-family: "Babylonica", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.oooh-baby-regular {
+  font-family: "Oooh Baby", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+h1 {
+  font-family: "Babylonica", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 48px;
+}
+
+h2 {
+  font-family: "Oooh Baby", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+p{
+  font-family: "oooh baby", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
 }
 
 .container {
@@ -13,8 +47,10 @@ body {
 .sidebar {
   width: 220px;
   padding-right: 40px;
-  text-align: center;
+  align-content: center;
+  text-align: left;
 }
+
 
 .baby-icon {
   width: 300px;
@@ -27,9 +63,10 @@ fieldset {
 }
 
 fieldset legend {
+  font-family: "Babylonica", cursive;
   font-weight: bold;
   margin-bottom: 10px;
-  font-size: 16px;
+  font-size: 32px;
 }
 
 label {
@@ -58,6 +95,7 @@ main {
 }
 
 h1 {
+  font-family: "Babylonica";
   font-size: 32px;
   margin-bottom: 20px;
   text-align: center;
