@@ -155,7 +155,112 @@ h1 {
   background-color: #f4c2c2;
 }
 
-ol li:nth-child(n+1):nth-child(-n+3) {
-  font-family: "oooh baby", cursive;
-  font-size: 50px;
+ol {
+   list-style-position: inside;
 }
+
+ol li:nth-child(1){
+  font-family: "Oooh Baby", cursive;
+  font-size: 40px;
+  align-self: center;
+  font-weight: bold;
+  color: gold;
+  
+}
+
+/* Platz 2 – links vom 1. Platz */
+ol li:nth-child(2) {
+  font-family: "Oooh Baby", cursive;
+  font-size: 32px;
+  color: silver;
+  text-align: left;
+
+}
+
+/* Platz 3 – rechts vom 1. Platz */
+ol li:nth-child(3) {
+  font-family: "Oooh Baby", cursive;
+  font-size: 32px;
+  color: #cd7f32; /* Bronze */
+  text-align: right;
+}
+
+/* Plätze 4–10 */
+ol li:nth-child(n+4):nth-child(-n+10) {
+  font-family: "Oooh Baby", cursive;
+  font-size: 20px;
+  color: #333;
+  text-align: center;
+  max-width: 400px;
+}
+
+/*
+ol {
+  list-style-position: inside;
+  padding-left: 0;
+  margin: 0 auto;
+  max-width: 500px;
+}
+
+ol li {
+  background: #fffbe9;
+  border-radius: 16px;
+  margin-bottom: 14px;
+  padding: 18px 28px;
+  font-family: "Oooh Baby", cursive;
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  transition: transform 0.15s;
+}
+
+ol li:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+}
+
+
+ol li::marker {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-right: 16px;
+}
+
+
+ol li:nth-child(1) {
+  background: linear-gradient(90deg, #fffbe9 70%, gold 100%);
+  color: #bfa100;
+  font-size: 32px;
+  font-weight: bold;
+}
+ol li:nth-child(1)::marker {
+  color: gold;
+}
+
+
+ol li:nth-child(2) {
+  background: linear-gradient(90deg, #fffbe9 70%, silver 100%);
+  color: #888;
+  font-size: 28px;
+}
+ol li:nth-child(2)::marker {
+  color: silver;
+}
+
+
+ol li:nth-child(3) {
+  background: linear-gradient(90deg, #fffbe9 70%, #cd7f32 100%);
+  color: #cd7f32;
+  font-size: 26px;
+}
+ol li:nth-child(3)::marker {
+  color: #cd7f32;
+}
+
+
+ol li:nth-child(n+4):nth-child(-n+10) {
+  background: #f9f9f9;
+  color: #333;
+  font-size: 20px;
+} */

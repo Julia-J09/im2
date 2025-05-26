@@ -54,8 +54,8 @@ document.addEventListener("DOMContentLoaded", () => {
         
       const html = `
         <h2>Top 10 ${boyorgirl} im Jahr ${year}</h2>
-        <ol>
-          ${topNames.map(name => `<li class=>${name.vorname} – ${name.n} Mal</li>`).join("")}
+        <ol class="podest">
+          ${topNames.map(name => `<li>${name.vorname} – ${name.n} Mal</li>`).join("")}
         </ol>
       `;
       showResults(html);
