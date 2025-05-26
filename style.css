@@ -1,8 +1,7 @@
 body {
   margin: 0;
-  font-family: "Oooh Baby", cursive;
   background-color: #fcf9ef;
-  color: #443d3d;
+  
 }
 
 .babylonica-regular {
@@ -17,18 +16,11 @@ body {
   font-style: normal;
 }
 
-h1 {
-  font-family: "Babylonica", cursive;
-  font-weight: 400;
-  font-style: normal;
-  font-size: 48px;
-}
-
 h2 {
   font-family: "Oooh Baby", cursive;
   font-weight: 400;
   font-style: normal;
-  font-size: 24px;
+  font-size: 32px;
   margin-bottom: 10px;
 }
 
@@ -36,7 +28,7 @@ p{
   font-family: "oooh baby", cursive;
   font-weight: 400;
   font-style: normal;
-  font-size: 16px;
+  font-size: 20px;
 }
 
 .container {
@@ -47,7 +39,6 @@ p{
 .sidebar {
   width: 220px;
   padding-right: 40px;
-  align-content: center;
   text-align: left;
 }
 
@@ -57,9 +48,19 @@ p{
   margin-bottom: 20px;
 }
 
+.baby-icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
 fieldset {
-  border: none;
+  border-left-width: 40px;
+  border-color:  #fcf9ef;
+  border-style: solid;
   margin: 20px 0;
+
 }
 
 fieldset legend {
@@ -67,11 +68,16 @@ fieldset legend {
   font-weight: bold;
   margin-bottom: 10px;
   font-size: 32px;
+  border-color: #fcf9ef;
 }
 
 label {
+  font-family: "Oooh Baby", cursive;
+  font-weight: 400;
+  font-size: 20px;
   display: block;
   margin: 6px 0;
+  text-align: left;
 }
 
 .years {
@@ -81,13 +87,15 @@ label {
 }
 
 button {
+  font-family: "Oooh Baby", cursive;
+  font-weight: 400;
   margin-top: 20px;
   padding: 10px 20px;
   background-color: #eae3d9;
   border: none;
   border-radius: 12px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 20px;
 }
 
 main {
@@ -96,12 +104,14 @@ main {
 
 h1 {
   font-family: "Babylonica";
-  font-size: 32px;
+  font-size: 48px;
   margin-bottom: 20px;
   text-align: center;
 }
 
 .search-box input[type="text"] {
+  font-family: "Oooh Baby", cursive;
+  font-weight: 400;
   width: 80%;
   margin: 0 auto 30px;
   display: block;
