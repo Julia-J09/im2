@@ -2,7 +2,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("filterForm");
   const main = document.querySelector("main");
   const nameInput = document.getElementById("nameInput");
-  let babyIcon = document.querySelector(".baby-icon")
+  let babyIcon = document.querySelector(".baby-icon");
+  let infoBox = document.querySelector(".info-box");
 
   // --- Filter nach Jahr & Geschlecht auf Webseite ---
   form.addEventListener("submit", async (e) => {
@@ -58,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
           ${topNames.map(name => `<li>${name.vorname} – ${name.n} Mal</li>`).join("")}
         </ol>
       `;
-      showResults(html);
+      showResults(html, true);
     } catch (error) {
       console.error("Fehler beim Abrufen der Daten:", error);
       showResults("<p>Fehler beim Laden der Daten.</p>");
@@ -66,15 +67,33 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Namenssuche
+
+  let iconNeutral = false; // zustand merken
+
 nameInput.addEventListener("input", async (e) => {
   e.preventDefault();
   
-    const vorname = nameInput.value.trim();
+  let vorname = nameInput.value.trim();
+ 
+  
+    if (vorname.length >= 1 && !iconNeutral) {
+    // Nur EINMAL auf neutral setzen, solange kein Ergebnis angezeigt wurde
+    babyIcon.src = "babyiconneutral.gif";
+    infoBox.classList.remove("boy", "girl");
+    iconNeutral = true;
+  }
+
+  if (vorname === "") {
+    showResults("<p>Bitte gib einen Namen ein.</p>", false);
+    iconNeutral = false; // Zustand zurücksetzen
+    return;
+  }
+
     const vornameUpper = vorname.toUpperCase();
     console.log("Vorname:", vornameUpper);
 
     if (vorname === "") {
-      showResults("<p>Bitte gib einen Namen ein.</p>");
+      showResults("<p>Bitte gib einen Namen ein.</p>", false);
       return;
     }
 
@@ -101,7 +120,7 @@ nameInput.addEventListener("input", async (e) => {
       console.log(filtered);
 
       if (filtered.length === 0) {
-        showResults(`<p>Der Name <strong>${vornameUpper}</strong> wurde nicht gefunden.</p>`);
+        showResults(`<p>Der Name <strong>${vornameUpper}</strong> wurde nicht gefunden.</p>`, false);
         return;
       }
 
@@ -114,16 +133,16 @@ nameInput.addEventListener("input", async (e) => {
         <h3>Namensanalyse für "${best.vorname.toUpperCase()}"</h3>
         <p>Am beliebtesten im Jahr <strong>${best.year}</strong> mit <strong>${best.n}</strong> Nennungen.</p>
       `;
-      showResults(html);
+      showResults(html, false);
     } catch (error) {
       console.error("Fehler bei der Namenssuche:", error);
-      showResults("<p>Fehler bei der Namenssuche.</p>");
+      showResults("<p>Fehler bei der Namenssuche.</p>", false);
     }
   
 });
 
   // 
-  function showResults(content) {
+  function showResults(content, genderRelevant = true) {
     const gender = form.gender.value;
 
     let infoBox = document.querySelector(".info-box");
@@ -131,23 +150,23 @@ nameInput.addEventListener("input", async (e) => {
 
     let gender_class = "";
     let genderIcon = "babyiconneutral.gif"
-    if (gender=="boy") {
-      
-      // Klasse des Elements ändern auf "boy"
-      gender_class = "boy"
-      genderIcon =  "babyboy.gif";
+    if (genderRelevant == true) {
+      if (gender=="boy") {
+        
+        // Klasse des Elements ändern auf "boy"
+        gender_class = "boy"
+        genderIcon =  "babyboy.gif";
 
-      //Klasse des Elements ändern auf "girl"
-    } else if (gender=="girl"){
-      gender_class = "girl"
-      genderIcon = "babygirl.gif";
-
-    } else {
+        //Klasse des Elements ändern auf "girl"
+      } else if (gender=="girl"){
+        gender_class = "girl"
+        genderIcon = "babygirl.gif";
+      } 
+      infoBox.classList.remove("boy" , "girl")
+      infoBox.classList.add(gender_class)
     }
 
     babyIcon.src = genderIcon;
-    infoBox.classList.remove("boy" , "girl")
-    infoBox.classList.add(gender_class)
     infoBox.innerHTML = content;
     
     
