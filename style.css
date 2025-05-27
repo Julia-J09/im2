@@ -272,6 +272,73 @@ main {
   display: inline;
 }
 
+@media (max-width: 900px) {
+  .container {
+    flex-direction: row; /* Sidebar und Main untereinander */
+    padding: 20px;
+  }
+  .sidebar {
+    width: 100%;
+    max-width: 160px;
+    text-align: center;
+  }
+  .baby-icon {
+    width: 225px;
+    margin-top: 20px;
+    margin-bottom: 0px;
+  }
+  .baby-icon-container {
+    margin-bottom: 0px;
+  }
+
+fieldset {
+  margin-left: 0px;
+  background-color: #fcf9ef;
+  padding-left: 20px;
+  border-color: #ede2d2;
+  border-style: solid;
+  margin: 20px 0;
+
+}
+
+fieldset legend {
+  font-family: "Babylonica", cursive;
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 32px;
+  border-color: #fcf9ef;
+}
+
+ h1 {
+  font-family: "Babylonica";
+  font-size: 80px;
+  margin-bottom: 0px;
+  text-align: center;
+}
+
+h2 {
+  font-family: "Oooh Baby", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 24px;
+  margin-bottom: 100px;
+}
+
+h3 {
+  font-family: "Oooh Baby", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+p{
+  font-family: "oooh baby", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+}
+}
 @media (max-width: 600px) {
   .container {
     flex-direction: row; /* bleibt nebeneinander */
