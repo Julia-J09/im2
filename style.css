@@ -1,7 +1,10 @@
 body {
   margin: 0;
   background-color: #fcf9ef;
-  
+  background-image: url(Hintergrund.png);
+  background-size: cover;                /* Bild füllt den Bildschirm */
+  background-repeat: no-repeat;           /* Bild wird nicht gekachelt */
+  background-position: center center;
 }
 
 .babylonica-regular {
@@ -17,7 +20,7 @@ body {
 }
 
 .sg {
-  color: green;
+  color: rgb(22, 167, 78);
 }
 
 h1 {
@@ -76,8 +79,9 @@ p{
 }
 
 fieldset {
-  border-left-width: 50px;
-  border-color:  #fcf9ef;
+  margin-left: 50px;
+ 
+ 
   border-style: solid;
   margin: 20px 0;
 
@@ -221,6 +225,7 @@ main {
   background: silver;
   color: #3b3b3b;
   text-align: center;
+  font-weight: bold;
   order: 1;
   font-size: 28px;
   transform: translateY(-15px);
@@ -231,6 +236,7 @@ main {
   color: #3b3b3b;
   font-size: 28px;
   text-align: center;
+  font-weight: bold;
   order: 3;
   transform: translateY(-10px);
 }
@@ -265,3 +271,113 @@ main {
   display: inline;
 }
 
+@media (max-width: 600px) {
+  .container {
+    flex-direction: row; /* bleibt nebeneinander */
+    padding: 8px;
+  }
+  .sidebar {
+    width: 100px;
+    min-width: 60px;
+    padding-right: 4px;
+    text-align: center;
+  }
+  .baby-icon {
+    width: 150px;
+    margin-top: 25px;
+    margin-bottom: 0px;
+  }
+  .baby-icon-container {
+    margin-bottom: 0;
+  }
+  /* Verstecke die alten Radiobutton-Gruppen */
+  .sidebar fieldset,
+  .sidebar .years {
+    display: none;
+  }
+  /* Dropdown-Menüs anzeigen */
+  .sidebar .mobile-dropdown {
+    display: block;
+    margin: 8px 0;
+    margin-top: 20px;
+    width: 90%;
+    font-size: 14px;
+  }
+  main {
+    padding: 0 4px;
+  }
+  h1 {
+    font-size: 48px;
+  }
+  h2 {
+    font-size: 24px;
+  }
+  h3 {
+    font-size: 24px;
+  }
+  p {
+    font-size: 16px;
+  }
+  .info-box {
+    width: 90%;
+    padding: 6px;
+    font-size: 14px;
+  }
+  .podest {
+    gap: 2px;
+  }
+  .podest li {
+    width: 80vw;
+    font-size: 14px;
+    padding: 6px 2px;
+  }
+  .podest li:nth-child(1) {
+    font-size: 18px;
+    transform: translateY(-20px);
+  }
+  .podest li:nth-child(2) {
+    font-size: 16px;
+    transform: translateY(-10px);
+  }
+  .podest li:nth-child(3) {
+    font-size: 14px;
+    transform: translateY(-5px);
+  }
+ 
+  .podest li:nth-child(n+4) {
+    font-size: 12px;
+  }
+  .podest li:nth-child(n+4)::before {
+    font-size: 12px;
+  }
+
+  #genderdropdown,
+  #yeardropdown {
+    display: block;
+    width: 90%;
+    margin-left: 50px;
+    font-size: 14px;
+    padding: 6px;
+    border-radius: 12px;
+    background-color: #fefaf3;
+    border: 2px solid #eae3d9;
+  }
+  .search-box {
+    margin-top: 30px;
+  }
+  .search-box input[type="text"] {
+    width: 90%;
+    font-size: 12px;
+    padding: 6px;
+    margin-bottom: 10px;
+  }
+.sidebar button,
+  #filterForm button {
+    width: 90%;
+    margin: 12px auto 0 auto;
+    display: block;
+    font-size: 18px;
+    padding: 10px 0;
+    border-radius: 16px;
+
+}}

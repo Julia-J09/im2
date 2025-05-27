@@ -172,3 +172,30 @@ nameInput.addEventListener("input", async (e) => {
     
   }
 });
+
+function handleResponsiveSidebar() {
+  const isMobile = window.innerWidth <= 600;
+  const genderDropdown = document.getElementById("genderDropdown");
+  const yearDropdown = document.getElementById("yearDropdown");
+  const genderRadios = document.querySelectorAll('input[name="gender"]');
+  const yearRadios = document.querySelectorAll('input[name="year"]');
+  if (isMobile) {
+    genderDropdown.style.display = "block";
+    yearDropdown.style.display = "block";
+    // Synchronisiere Dropdown mit Radio
+    genderDropdown.value = document.querySelector('input[name="gender"]:checked').value;
+    yearDropdown.value = document.querySelector('input[name="year"]:checked').value;
+    // Dropdown-Änderungen auf Radio übertragen
+    genderDropdown.onchange = () => {
+      document.querySelector(`input[name="gender"][value="${genderDropdown.value}"]`).checked = true;
+    };
+    yearDropdown.onchange = () => {
+      document.querySelector(`input[name="year"][value="${yearDropdown.value}"]`).checked = true;
+    };
+  } else {
+    genderDropdown.style.display = "none";
+    yearDropdown.style.display = "none";
+  }
+}
+window.addEventListener("resize", handleResponsiveSidebar);
+window.addEventListener("DOMContentLoaded", handleResponsiveSidebar);
