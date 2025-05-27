@@ -1,8 +1,9 @@
+
 body {
   margin: 0;
   background-color: #fcf9ef;
   background-image: url(Hintergrund.png);
-  background-size:cover;                /* Bild füllt den Bildschirm */    /* Bild wird nicht gekachelt */
+  background-size:cover;               
   background-position: center center;
 }
 
@@ -138,6 +139,7 @@ main {
 
 .search-box input[type="text"] {
   font-family: "Oooh Baby", cursive;
+  font-size: 18px;
   font-weight: 400;
   width: 80%;
   margin: 0 auto 30px;
@@ -145,7 +147,6 @@ main {
   padding: 12px;
   border: 2px solid #eae3d9;
   border-radius: 20px;
-  font-size: 20px;
   background-color: #fefaf3;
 }
 
@@ -377,7 +378,6 @@ main {
   }
   .search-box input[type="text"] {
     width: 90%;
-    font-size: 12px;
     padding: 6px;
     margin-bottom: 10px;
   }
@@ -390,4 +390,5 @@ main {
     padding: 10px 0;
     border-radius: 16px;
 
-}}
+}
+
