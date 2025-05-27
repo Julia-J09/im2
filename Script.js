@@ -19,25 +19,25 @@ document.addEventListener("DOMContentLoaded", () => {
       girl: "2"
     };
     const genderAPI = genderMap[gender];
-    console.log("Jahr:", year, "Geschlecht:", genderAPI);
+
 
     let apiUrl = `https://daten.sg.ch/api/explore/v2.1/catalog/datasets/vornamen-der-neugeborenen-kanton-stgallen-seit-1987/records?order_by=n%20desc&limit=-1&exclude=vorname%3Aandere%20Namen`;
 
     if (year) {
       apiUrl += `&refine=year%3A%22${year}%22 `;
-      console.log(apiUrl);
+      
     } 
 
     if (genderAPI) {
       apiUrl += `&refine=geschlecht%3A%22${genderAPI}%22`;
-      console.log(apiUrl);
+     
     }
 
     try {
       const response = await fetch(apiUrl);
       const data = await response.json();
       const records = data.results;
-      console.log(records)
+      
 
       if (records.length === 0) {
         showResults(`<p>Keine Daten gefunden.</p>`);
@@ -90,7 +90,7 @@ nameInput.addEventListener("input", async (e) => {
   }
 
     const vornameUpper = vorname.toUpperCase();
-    console.log("Vorname:", vornameUpper);
+    
 
     if (vorname === "") {
       showResults("<p>Bitte gib einen Namen ein.</p>", false);
@@ -101,23 +101,20 @@ nameInput.addEventListener("input", async (e) => {
 
     if (vornameUpper) {
       apiUrl += `&refine=vorname%3A${vornameUpper}`;
-      console.log(apiUrl);
+      
     } 
 
     try { 
       const response = await fetch(apiUrl);
       const data = await response.json();
       const records = data.results;
-      console.log(records)
+      
 
       // Standard-Filter: ohne Akzent-Normalisierung
       const filtered = records.filter(
         (record) => record.vorname.toUpperCase() === vornameUpper
       );
 
-    
-
-      console.log(filtered);
 
       if (filtered.length === 0) {
         showResults(`<p>Der Name <strong>${vornameUpper}</strong> wurde nicht gefunden.</p>`, false);
