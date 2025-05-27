@@ -116,7 +116,7 @@ button {
   font-weight: 400;
   margin-top: 20px;
   padding: 10px 20px;
-  background-color: #eae3d9;
+  background-color:#ede2d2;
   margin-left: 50px;
   border: none;
   border-radius: 12px;
@@ -145,7 +145,7 @@ main {
   margin: 0 auto 30px;
   display: block;
   padding: 12px;
-  border: 2px solid #eae3d9;
+  border: 2px solid #ede2d2;
   border-radius: 20px;
   background-color: #fefaf3;
 }
@@ -476,7 +476,7 @@ p{
     padding: 6px;
     border-radius: 12px;
     background-color: #fefaf3;
-    border: 2px solid #eae3d9;
+    border: 2px solid #ede2d2;
   }
   .search-box {
     margin-top: 30px;
