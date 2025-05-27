@@ -2,8 +2,7 @@ body {
   margin: 0;
   background-color: #fcf9ef;
   background-image: url(Hintergrund.png);
-  background-size: cover;                /* Bild füllt den Bildschirm */
-  background-repeat: no-repeat;           /* Bild wird nicht gekachelt */
+  background-size:cover;                /* Bild füllt den Bildschirm */    /* Bild wird nicht gekachelt */
   background-position: center center;
 }
 
@@ -80,8 +79,9 @@ p{
 
 fieldset {
   margin-left: 50px;
- 
- 
+  background-color: #fcf9ef;
+  padding-left: 50px;
+  border-color: #ede2d2;
   border-style: solid;
   margin: 20px 0;
 
