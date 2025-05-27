@@ -8,7 +8,7 @@ body {
 }
 
 .babylonica-regular {
-  font-family: "Babylonica", cursive;
+  font-family: "Oooh Baby", cursive;
   font-weight: 400;
   font-style: normal;
 }
@@ -24,7 +24,7 @@ body {
 }
 
 h1 {
-  font-family: "Babylonica";
+  font-family: "Oooh Baby";
   font-size: 80px;
   margin-bottom: 0px;
   text-align: center;
@@ -71,6 +71,7 @@ p{
   margin-bottom: 0px;
 }
 
+
 .baby-icon-container {
   display: flex;
   justify-content: center;
@@ -89,7 +90,7 @@ fieldset {
 }
 
 fieldset legend {
-  font-family: "Babylonica", cursive;
+  font-family: "Oooh Baby", cursive;
   font-weight: bold;
   margin-bottom: 10px;
   font-size: 32px;
@@ -122,6 +123,9 @@ button {
   border-radius: 12px;
   cursor: pointer;
   font-size: 20px;
+}
+button:hover {
+  background-color: #dddbd7;
 }
 
 main {
@@ -214,7 +218,7 @@ main {
 /* Spezielle Farben, Größen und Positionierung für Podestplätze */
 .podest li:nth-child(1) {
   background: gold;
-  font-size: 28px;
+  font-size: 24px;
   text-align: center;
   font-weight: bold;
   color: #3b3b3b;
@@ -228,14 +232,14 @@ main {
   text-align: center;
   font-weight: bold;
   order: 1;
-  font-size: 20px;
+  font-size: 24px;
   transform: translateY(-15px);
 }
 
 .podest li:nth-child(3) {
   background: #cd7f32;
   color: #3b3b3b;
-  font-size: 20px;
+  font-size: 24px;
   text-align: center;
   font-weight: bold;
   order: 3;
